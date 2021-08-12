@@ -9,8 +9,8 @@ if len(sys.argv) == 1:
 
 pipeline_name = sys.argv[1]
 
-base_url = 'http://jenkins-tt.drivecaminc.loc:8080/job/master/job/pipelines/job/cicd/job/'
-api_req = '/job/00_master_pipeline/wfapi/runs'
+base_url = 'http://jenkin..../job/'
+api_req = '/job/....._pipeline/wfapi/runs'
 r = requests.get(base_url + pipeline_name + api_req)
 
 json_data = r.json()
