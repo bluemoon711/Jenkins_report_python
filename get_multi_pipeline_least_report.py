@@ -3,8 +3,8 @@ import json
 import csv
 import pandas as pd
 
-names = ['master', 'sf300wifi_rack', 'int2_rack']
-base_url = 'http://jenkins-tt.drivecaminc.loc:8080/job/master/job/pipelines/job/cicd/job/'
+names = ['master', 'a_rack', 'b_rack']
+base_url = 'http://jenkins......./job/'
 api_req = '/job/00_master_pipeline/wfapi/runs'
 for name in names: 
 	r = requests.get(base_url + name + api_req)
