@@ -9,7 +9,7 @@ if len(sys.argv) == 1:
 
 job_name = sys.argv[1]
 bld_num = sys.argv[2]
-#this is used for master pipleline. Need to change the base for other pipelines
+#this is link used for the project
 base = 'http://jenkins...../job/'
 api_req = '/wfapi/describe'
 r = requests.get(base + job_name + '/' + bld_num + api_req)
