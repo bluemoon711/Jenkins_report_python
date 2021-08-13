@@ -3,9 +3,9 @@ import json
 import csv
 import pandas as pd
 
-names = ['master', 'a_rack', 'b_rack']
-base_url = 'http://jenkins......./job/'
-api_req = '/job/00_master_pipeline/wfapi/runs'
+#get results of 3 different pipelines information together
+names = ['pipeline1', 'pipeline2', 'pipeline3']
+base_url = 'http://jenkin...pipelines/wfapi/runs'
 for name in names: 
 	r = requests.get(base_url + name + api_req)
 	json_data = r.json()
