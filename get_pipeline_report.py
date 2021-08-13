@@ -1,3 +1,4 @@
+#get the newest build result on the single pipeline
 import sys
 import requests
 import json
@@ -17,10 +18,9 @@ r = requests.get(base_url + pipeline_name + api_req)
 json_data = r.json()
 with open('data.json', 'w') as f:
     json.dump(json_data, f)
-#print (len(json_data))
-#print(json_data[0])
+    
 recent_build = json_data[0]
-#print(recent_build['name'])
+
 run_list = []
 for stage in recent_build['stages']:
     detail = {}
@@ -45,30 +45,3 @@ with open('pipe.csv', 'w') as f:
 df = pd.read_csv('pipe.csv')
 df.to_csv('report.csv', index = False)
 
-#run_list = []
-# for run in json_data:
-#     print(run)
-    # build = {}
-    # for stage in run['stages']:
-    #     #print (stage['name'] + "  " + stage['status'])
-    #     build[stage['name']] = stage['status']
-    # run_list.append(build)
-
-# sns = []
-# for element in run_list:
-#     for key, value in element.items():
-#         sns.append(key)
-# set_sns = set(sns)
-# #print (set_sns)
-
-# with open('pipe.csv', mode='w') as csv_file:
-#     fieldnames = set_sns
-#     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-#     writer.writeheader()
-#     for r in run_list:
-#         writer.writerow(r)
-
-# with open('pipe.csv') as infile, open('report.csv', 'w') as outfile:
-#     for line in infile:
-#         if not line.strip(): continue  # skip the empty line
-#         outfile.write(line)
